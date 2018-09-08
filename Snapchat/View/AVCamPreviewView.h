@@ -8,6 +8,7 @@ Application preview view.
 @import UIKit;
 
 @class AVCaptureSession;
+@class AVCaptureVideoPreviewLayer;
 
 @interface AVCamPreviewView : UIView
 
