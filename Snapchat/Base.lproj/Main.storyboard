@@ -23,12 +23,15 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pms-1c-H1u">
-                                <rect key="frame" x="157.5" y="599" width="60" height="60"/>
+                                <rect key="frame" x="157.5" y="507" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="SDb-1c-be4"/>
                                     <constraint firstAttribute="height" constant="60" id="gsF-Na-it5"/>
                                 </constraints>
                                 <state key="normal" image="createsnap_btn"/>
+                                <connections>
+                                    <action selector="recordBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y0v-Ij-Bp6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYn-Mr-Z8o">
                                 <rect key="frame" x="315" y="28" width="45" height="43"/>
@@ -37,6 +40,9 @@
                                     <constraint firstAttribute="height" constant="43" id="qYG-GT-0iY"/>
                                 </constraints>
                                 <state key="normal" image="camera_icon_snap"/>
+                                <connections>
+                                    <action selector="changeCameraBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mxM-I1-z8f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,7 +50,7 @@
                             <constraint firstItem="1YE-nM-EjD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6Oa-Al-Jg7"/>
                             <constraint firstItem="1YE-nM-EjD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7GO-16-efz"/>
                             <constraint firstItem="pms-1c-H1u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cmo-F0-wqO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pms-1c-H1u" secondAttribute="bottom" constant="8" id="M7a-2W-5Bh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pms-1c-H1u" secondAttribute="bottom" constant="100" id="M7a-2W-5Bh"/>
                             <constraint firstItem="1YE-nM-EjD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WVq-fB-DLk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eYn-Mr-Z8o" secondAttribute="trailing" constant="15" id="dxu-By-Fnw"/>
                             <constraint firstItem="eYn-Mr-Z8o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="lYu-wV-aiY"/>

@@ -9,6 +9,7 @@ View controller for camera interface.
 @class AVCamPreviewView;
 
 @interface AVCamCameraViewController : UIViewController
-    @property (nonatomic, weak)  AVCamPreviewView *_previewView;
-
+@property (nonatomic, weak)  AVCamPreviewView *_previewView;
+- (void)changeCamera;
+- (void)toggleMovieRecording;
 @end
