@@ -32,6 +32,7 @@
 		AE0AE6C921441CCE00426595 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 		AE0AE6CC21441EDA00426595 /* AVCamPhotoCaptureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPhotoCaptureDelegate.m; sourceTree = "<group>"; };
 		AE0AE6CD21441EDA00426595 /* AVCamPhotoCaptureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPhotoCaptureDelegate.h; sourceTree = "<group>"; };
+		AE0AE6D22145706400426595 /* AVCamCameraVCDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVCamCameraVCDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		AE0AE6AC2144150F00426595 /* Snapchat */ = {
 			isa = PBXGroup;
 			children = (
+				AE0AE6CF21456F0300426595 /* Protocols */,
 				AE0AE6C421441B4300426595 /* View */,
 				AE0AE6C321441B3700426595 /* Controller */,
 				AE0AE6AD2144150F00426595 /* AppDelegate.swift */,
@@ -95,6 +97,14 @@
 				AE0AE6C821441CCE00426595 /* AVCamPreviewView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AE0AE6CF21456F0300426595 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AE0AE6D22145706400426595 /* AVCamCameraVCDelegate.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
