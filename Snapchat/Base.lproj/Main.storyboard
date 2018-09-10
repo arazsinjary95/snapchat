@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdd-o5-UKu">
-                                <rect key="frame" x="155" y="500" width="64" height="57"/>
+                                <rect key="frame" x="155" y="600" width="64" height="57"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="8bf-xf-CfI"/>
@@ -52,7 +52,7 @@
                             <constraint firstItem="1YE-nM-EjD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="6Oa-Al-Jg7"/>
                             <constraint firstItem="1YE-nM-EjD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7GO-16-efz"/>
                             <constraint firstItem="1YE-nM-EjD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WVq-fB-DLk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vdd-o5-UKu" secondAttribute="bottom" constant="110" id="ZIz-tE-8Ff"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vdd-o5-UKu" secondAttribute="bottom" constant="10" id="ZIz-tE-8Ff"/>
                             <constraint firstItem="Vdd-o5-UKu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dqa-aW-d1B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eYn-Mr-Z8o" secondAttribute="trailing" constant="15" id="dxu-By-Fnw"/>
                             <constraint firstItem="eYn-Mr-Z8o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="lYu-wV-aiY"/>
