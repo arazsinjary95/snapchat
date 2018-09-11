@@ -64,11 +64,113 @@
                         <outlet property="cameraBtn" destination="eYn-Mr-Z8o" id="U5e-Vw-pDA"/>
                         <outlet property="previewView" destination="1YE-nM-EjD" id="4EQ-x2-g98"/>
                         <outlet property="recordBtn" destination="Vdd-o5-UKu" id="dv1-yr-HY3"/>
+                        <segue destination="t1I-Tw-kvI" kind="presentation" identifier="LoginVC" id="OFU-WH-A0W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="2mQ-2q-Saa">
+            <objects>
+                <viewController id="t1I-Tw-kvI" customClass="LoginVC" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MNy-bQ-EVG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lp5-Df-RA8" customClass="RoundTextField" customModule="Snapchat" customModuleProvider="target">
+                                <rect key="frame" x="62.5" y="270" width="250" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6Q0-eh-Txt"/>
+                                    <constraint firstAttribute="width" constant="250" id="ryX-dF-d3L"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWith">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JgQ-OS-SBG" customClass="RoundTextField" customModule="Snapchat" customModuleProvider="target">
+                                <rect key="frame" x="62.5" y="328" width="250" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="FoM-va-ec7"/>
+                                    <constraint firstAttribute="height" constant="40" id="H2b-Wo-BiW"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWith">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAt-sr-Z6W" customClass="RoundButton" customModule="Snapchat" customModuleProvider="target">
+                                <rect key="frame" x="62.5" y="392" width="250" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Jfa-2V-FfO"/>
+                                    <constraint firstAttribute="width" constant="250" id="eBa-nw-0d5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWith">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YAt-sr-Z6W" firstAttribute="top" secondItem="JgQ-OS-SBG" secondAttribute="bottom" constant="24" id="4Zr-OK-GgZ"/>
+                            <constraint firstItem="JgQ-OS-SBG" firstAttribute="top" secondItem="Lp5-Df-RA8" secondAttribute="bottom" constant="18" id="7Ny-lh-6Gd"/>
+                            <constraint firstItem="JgQ-OS-SBG" firstAttribute="centerX" secondItem="MNy-bQ-EVG" secondAttribute="centerX" id="7zx-4z-q1i"/>
+                            <constraint firstItem="Lp5-Df-RA8" firstAttribute="top" secondItem="Vae-CG-c8b" secondAttribute="top" constant="250" id="FUY-f8-JBJ"/>
+                            <constraint firstItem="YAt-sr-Z6W" firstAttribute="centerX" secondItem="MNy-bQ-EVG" secondAttribute="centerX" id="YDP-0g-vnx"/>
+                            <constraint firstItem="Lp5-Df-RA8" firstAttribute="centerX" secondItem="MNy-bQ-EVG" secondAttribute="centerX" id="dOV-M2-tBp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vae-CG-c8b"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dhL-cS-T9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877.60000000000002" y="116.49175412293854"/>
         </scene>
     </scenes>
     <resources>
