@@ -79,7 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lp5-Df-RA8" customClass="RoundTextField" customModule="Snapchat" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lp5-Df-RA8" customClass="RoundTextField" customModule="Snapchat" customModuleProvider="target">
                                 <rect key="frame" x="62.5" y="270" width="250" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6Q0-eh-Txt"/>
@@ -106,7 +106,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JgQ-OS-SBG" customClass="RoundTextField" customModule="Snapchat" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JgQ-OS-SBG" customClass="RoundTextField" customModule="Snapchat" customModuleProvider="target">
                                 <rect key="frame" x="62.5" y="328" width="250" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="FoM-va-ec7"/>
@@ -154,6 +154,9 @@
                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="t1I-Tw-kvI" eventType="touchUpInside" id="ei3-mq-30x"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,6 +170,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vae-CG-c8b"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="Lp5-Df-RA8" id="oWj-2L-SNb"/>
+                        <outlet property="passwordField" destination="JgQ-OS-SBG" id="Lrm-uB-1Y3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhL-cS-T9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
