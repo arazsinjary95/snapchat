@@ -15,7 +15,7 @@
 		AE0AE6CA21441CCE00426595 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6C721441CCE00426595 /* AVCamCameraViewController.m */; };
 		AE0AE6CB21441CCE00426595 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6C821441CCE00426595 /* AVCamPreviewView.m */; };
 		AE0AE6CE21441EDA00426595 /* AVCamPhotoCaptureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6CC21441EDA00426595 /* AVCamPhotoCaptureDelegate.m */; };
-		AE0AE6D52146B6D500426595 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE0AE6D42146B6D500426595 /* GoogleService-Info-3.plist */; };
+		AE0AE6D52146B6D500426595 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE0AE6D42146B6D500426595 /* GoogleService-Info.plist */; };
 		B98A9B8ED352AD1D3D651F9F /* Pods_Snapchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7C8A3DBDF0E59B3DCE669DD /* Pods_Snapchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,7 @@
 		AE0AE6CC21441EDA00426595 /* AVCamPhotoCaptureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPhotoCaptureDelegate.m; sourceTree = "<group>"; };
 		AE0AE6CD21441EDA00426595 /* AVCamPhotoCaptureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPhotoCaptureDelegate.h; sourceTree = "<group>"; };
 		AE0AE6D22145706400426595 /* AVCamCameraVCDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVCamCameraVCDelegate.h; sourceTree = "<group>"; };
-		AE0AE6D42146B6D500426595 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
+		AE0AE6D42146B6D500426595 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7C8A3DBDF0E59B3DCE669DD /* Pods_Snapchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snapchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 				AE0AE6B42144151300426595 /* Assets.xcassets */,
 				AE0AE6B62144151300426595 /* LaunchScreen.storyboard */,
 				AE0AE6B92144151300426595 /* Info.plist */,
-				AE0AE6D42146B6D500426595 /* GoogleService-Info-3.plist */,
+				AE0AE6D42146B6D500426595 /* GoogleService-Info.plist */,
 				AE0AE6C521441CCD00426595 /* Snapchat-Bridging-Header.h */,
 			);
 			path = Snapchat;
@@ -199,7 +199,7 @@
 				AE0AE6B82144151300426595 /* LaunchScreen.storyboard in Resources */,
 				AE0AE6B52144151300426595 /* Assets.xcassets in Resources */,
 				AE0AE6B32144150F00426595 /* Main.storyboard in Resources */,
-				AE0AE6D52146B6D500426595 /* GoogleService-Info-3.plist in Resources */,
+				AE0AE6D52146B6D500426595 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +422,10 @@
 				DEVELOPMENT_TEAM = D5LZHBYJ46;
 				INFOPLIST_FILE = Snapchat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arazsinjary.Snapchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Snapchat/Snapchat-Bridging-Header.h";
@@ -442,7 +445,10 @@
 				DEVELOPMENT_TEAM = D5LZHBYJ46;
 				INFOPLIST_FILE = Snapchat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arazsinjary.Snapchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Snapchat/Snapchat-Bridging-Header.h";
