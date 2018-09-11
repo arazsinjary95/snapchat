@@ -27,6 +27,7 @@ class CameraVC: AVCamCameraViewController, AVCamCameraVCDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        //this important to understand when we get error in authentication make sure first remove our condition.
         guard Auth.auth().currentUser != nil else {
             performSegue(withIdentifier: "LoginVC", sender: nil)
             return 

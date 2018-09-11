@@ -9,6 +9,8 @@
 import Foundation
 import FirebaseAuth
 
+typealias Completion = (_ errMsg: String?, _ data: AnyObject?) -> Void
+
 class AuthService {
     
     private static let _instance = AuthService()
@@ -17,7 +19,7 @@ class AuthService {
         return _instance
     }
     
-    func login(email: String, password: String) {
+    func login(email: String, password: String, onComplete: Completion?) {
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
@@ -27,6 +29,7 @@ class AuthService {
                     
                     if error != nil {
                         //show error to user
+                        self.handleFirebaseError(error: error! as NSError, onComplete: onComplete!)
                     } else {
                         //if we successfully create user or acount and now we have uid
                         if user?.user.uid != nil {
@@ -35,8 +38,10 @@ class AuthService {
                                 
                                 if error != nil {
                                     //show error to user
+                                    self.handleFirebaseError(error: error! as NSError, onComplete: onComplete!)
                                 } else {
                                     //we have successfully logged in
+                                    onComplete?(nil, user)
                                 }
                             })
                         }
@@ -44,7 +49,46 @@ class AuthService {
                 })
             } else {
                 //successfully logged in
+                onComplete?(nil, user)
             }
         }
     }
+    
+    func handleFirebaseError(error: NSError, onComplete: Completion) {
+        
+        print(error.debugDescription)
+        
+        if let errorCode = AuthErrorCode(rawValue: error.code) {
+            
+            switch (errorCode) {
+            case .invalidEmail:
+                onComplete("Invalid email address", nil)
+                break
+            case .wrongPassword:
+                onComplete("Invalid password", nil)
+                break
+            case .emailAlreadyInUse, .accountExistsWithDifferentCredential:
+                onComplete("Could not  create account. Email already in use", nil)
+                break
+            default:
+                onComplete("There was a problem autheticating. Try again.", nil)
+            }
+        }
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
