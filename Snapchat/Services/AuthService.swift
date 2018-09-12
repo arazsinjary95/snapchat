@@ -33,6 +33,8 @@ class AuthService {
                     } else {
                         //if we successfully create user or acount and now we have uid
                         if user?.user.uid != nil {
+                            
+                            DataService.instance.saveUser(uid: user!.user.uid)
                             //sign in
                             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                                 
