@@ -21,6 +21,9 @@
 		AE0AE6E72148290200426595 /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6E62148290200426595 /* RoundTextField.swift */; };
 		AE0AE6EA214836C100426595 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6E9214836C100426595 /* AuthService.swift */; };
 		AE0AE6EC21496E4D00426595 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6EB21496E4D00426595 /* DataService.swift */; };
+		AE0AE6EE214ABFB400426595 /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6ED214ABFB400426595 /* UserVC.swift */; };
+		AE0AE6F0214AC0CF00426595 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6EF214AC0CF00426595 /* UserCell.swift */; };
+		AE0AE6F2214AC57800426595 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0AE6F1214AC57800426595 /* User.swift */; };
 		B98A9B8ED352AD1D3D651F9F /* Pods_Snapchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7C8A3DBDF0E59B3DCE669DD /* Pods_Snapchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,9 @@
 		AE0AE6E62148290200426595 /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
 		AE0AE6E9214836C100426595 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AE0AE6EB21496E4D00426595 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		AE0AE6ED214ABFB400426595 /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
+		AE0AE6EF214AC0CF00426595 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		AE0AE6F1214AC57800426595 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B7C8A3DBDF0E59B3DCE669DD /* Pods_Snapchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snapchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,7 @@
 				AE0AE6B92144151300426595 /* Info.plist */,
 				AE0AE6D42146B6D500426595 /* GoogleService-Info.plist */,
 				AE0AE6C521441CCD00426595 /* Snapchat-Bridging-Header.h */,
+				AE0AE6F1214AC57800426595 /* User.swift */,
 			);
 			path = Snapchat;
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 				AE0AE6C721441CCE00426595 /* AVCamCameraViewController.m */,
 				AE0AE6AF2144150F00426595 /* CameraVC.swift */,
 				AE0AE6E42148279000426595 /* LoginVC.swift */,
+				AE0AE6ED214ABFB400426595 /* UserVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,6 +144,7 @@
 				AE0AE6C821441CCE00426595 /* AVCamPreviewView.m */,
 				AE0AE6E22148216400426595 /* RoundButton.swift */,
 				AE0AE6E62148290200426595 /* RoundTextField.swift */,
+				AE0AE6EF214AC0CF00426595 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,13 +302,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0AE6F2214AC57800426595 /* User.swift in Sources */,
 				AE0AE6E72148290200426595 /* RoundTextField.swift in Sources */,
 				AE0AE6E32148216400426595 /* RoundButton.swift in Sources */,
+				AE0AE6EE214ABFB400426595 /* UserVC.swift in Sources */,
 				AE0AE6CE21441EDA00426595 /* AVCamPhotoCaptureDelegate.m in Sources */,
 				AE0AE6EA214836C100426595 /* AuthService.swift in Sources */,
 				AE0AE6E52148279000426595 /* LoginVC.swift in Sources */,
 				AE0AE6B02144150F00426595 /* CameraVC.swift in Sources */,
 				AE0AE6AE2144150F00426595 /* AppDelegate.swift in Sources */,
+				AE0AE6F0214AC0CF00426595 /* UserCell.swift in Sources */,
 				AE0AE6CB21441CCE00426595 /* AVCamPreviewView.m in Sources */,
 				AE0AE6CA21441CCE00426595 /* AVCamCameraViewController.m in Sources */,
 				AE0AE6EC21496E4D00426595 /* DataService.swift in Sources */,
