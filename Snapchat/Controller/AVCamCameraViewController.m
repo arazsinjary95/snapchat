@@ -345,22 +345,22 @@ typedef NS_ENUM( NSInteger, AVCamDepthDataDeliveryMode ) {
 	}
 	
 	// Add photo output.
-	AVCapturePhotoOutput *photoOutput = [[AVCapturePhotoOutput alloc] init];
-	if ( [self.session canAddOutput:photoOutput] ) {
-		[self.session addOutput:photoOutput];
-		self.photoOutput = photoOutput;
-		
-		self.photoOutput.highResolutionCaptureEnabled = YES;
-		self.photoOutput.livePhotoCaptureEnabled = self.photoOutput.livePhotoCaptureSupported;
+    AVCapturePhotoOutput *photoOutput = [[AVCapturePhotoOutput alloc] init];
+    if ( [self.session canAddOutput:photoOutput] ) {
+        [self.session addOutput:photoOutput];
+        self.photoOutput = photoOutput;
+        
+        self.photoOutput.highResolutionCaptureEnabled = YES;
+        self.photoOutput.livePhotoCaptureEnabled = self.photoOutput.livePhotoCaptureSupported;
         self.photoOutput.depthDataDeliveryEnabled = self.photoOutput.depthDataDeliverySupported;
         
-		self.livePhotoMode = self.photoOutput.livePhotoCaptureSupported ? AVCamLivePhotoModeOn : AVCamLivePhotoModeOff;
+        self.livePhotoMode = self.photoOutput.livePhotoCaptureSupported ? AVCamLivePhotoModeOn : AVCamLivePhotoModeOff;
         self.depthDataDeliveryMode = self.photoOutput.depthDataDeliverySupported ? AVCamDepthDataDeliveryModeOn : AVCamDepthDataDeliveryModeOff;
         
-		
-		self.inProgressPhotoCaptureDelegates = [NSMutableDictionary dictionary];
-		self.inProgressLivePhotoCapturesCount = 0;
-	}
+        
+        self.inProgressPhotoCaptureDelegates = [NSMutableDictionary dictionary];
+        self.inProgressLivePhotoCapturesCount = 0;
+    }
 	else {
 		NSLog( @"Could not add photo output to the session" );
 		self.setupResult = AVCamSetupResultSessionConfigurationFailed;
@@ -635,72 +635,78 @@ typedef NS_ENUM( NSInteger, AVCamDepthDataDeliveryMode ) {
         if ( self.videoDeviceInput.device.isFlashAvailable ) {
             photoSettings.flashMode = AVCaptureFlashModeAuto;
         }
-		photoSettings.highResolutionPhotoEnabled = YES;
-		if ( photoSettings.availablePreviewPhotoPixelFormatTypes.count > 0 ) {
-			photoSettings.previewPhotoFormat = @{ (NSString *)kCVPixelBufferPixelFormatTypeKey : photoSettings.availablePreviewPhotoPixelFormatTypes.firstObject };
-		}
-		if ( self.livePhotoMode == AVCamLivePhotoModeOn && self.photoOutput.livePhotoCaptureSupported ) { // Live Photo capture is not supported in movie mode.
-			NSString *livePhotoMovieFileName = [NSUUID UUID].UUIDString;
-			NSString *livePhotoMovieFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[livePhotoMovieFileName stringByAppendingPathExtension:@"mov"]];
-			photoSettings.livePhotoMovieFileURL = [NSURL fileURLWithPath:livePhotoMovieFilePath];
-		}
         
-        if ( self.depthDataDeliveryMode == AVCamDepthDataDeliveryModeOn && self.photoOutput.isDepthDataDeliverySupported ) {
-            photoSettings.depthDataDeliveryEnabled = YES;
-        } else {
-            photoSettings.depthDataDeliveryEnabled = NO;
-        }
-		
-		// Use a separate object for the photo capture delegate to isolate each capture life cycle.
-		AVCamPhotoCaptureDelegate *photoCaptureDelegate = [[AVCamPhotoCaptureDelegate alloc] initWithRequestedPhotoSettings:photoSettings willCapturePhotoAnimation:^{
-			dispatch_async( dispatch_get_main_queue(), ^{
-				self._previewView.videoPreviewLayer.opacity = 0.0;
-				[UIView animateWithDuration:0.25 animations:^{
-					self._previewView.videoPreviewLayer.opacity = 1.0;
-				}];
-			} );
-		} livePhotoCaptureHandler:^( BOOL capturing ) {
-			/*
-				Because Live Photo captures can overlap, we need to keep track of the
-				number of in progress Live Photo captures to ensure that the
-				Live Photo label stays visible during these captures.
-			*/
-			dispatch_async( self.sessionQueue, ^{
-				if ( capturing ) {
-					self.inProgressLivePhotoCapturesCount++;
-				}
-				else {
-					self.inProgressLivePhotoCapturesCount--;
-				}
-				
-				NSInteger inProgressLivePhotoCapturesCount = self.inProgressLivePhotoCapturesCount;
-				dispatch_async( dispatch_get_main_queue(), ^{
-					if ( inProgressLivePhotoCapturesCount > 0 ) {
-						self.capturingLivePhotoLabel.hidden = NO;
-					}
-					else if ( inProgressLivePhotoCapturesCount == 0 ) {
-						self.capturingLivePhotoLabel.hidden = YES;
-					}
-					else {
-						NSLog( @"Error: In progress live photo capture count is less than 0" );
-					}
-				} );
-			} );
-		} completionHandler:^( AVCamPhotoCaptureDelegate *photoCaptureDelegate ) {
-			// When the capture is complete, remove a reference to the photo capture delegate so it can be deallocated.
-			dispatch_async( self.sessionQueue, ^{
-				self.inProgressPhotoCaptureDelegates[@(photoCaptureDelegate.requestedPhotoSettings.uniqueID)] = nil;
-			} );
-		}];
-		
-		/*
-			The Photo Output keeps a weak reference to the photo capture delegate so
-			we store it in an array to maintain a strong reference to this object
-			until the capture is completed.
-		*/
-		self.inProgressPhotoCaptureDelegates[@(photoCaptureDelegate.requestedPhotoSettings.uniqueID)] = photoCaptureDelegate;
-		[self.photoOutput capturePhotoWithSettings:photoSettings delegate:photoCaptureDelegate];
-	} );
+        [self.delegate snapshotTaken:photoSettings];
+
+//        photoSettings.highResolutionPhotoEnabled = YES;
+//        if ( photoSettings.availablePreviewPhotoPixelFormatTypes.count > 0 ) {
+//            photoSettings.previewPhotoFormat = @{ (NSString *)kCVPixelBufferPixelFormatTypeKey : photoSettings.availablePreviewPhotoPixelFormatTypes.firstObject };
+//        }
+//
+//
+//        if ( self.livePhotoMode == AVCamLivePhotoModeOn && self.photoOutput.livePhotoCaptureSupported ) { // Live Photo capture is not supported in movie mode.
+//            NSString *livePhotoMovieFileName = [NSUUID UUID].UUIDString;
+//            NSString *livePhotoMovieFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[livePhotoMovieFileName stringByAppendingPathExtension:@"mov"]];
+//            photoSettings.livePhotoMovieFileURL = [NSURL fileURLWithPath:livePhotoMovieFilePath];
+//        }
+//
+//        if ( self.depthDataDeliveryMode == AVCamDepthDataDeliveryModeOn && self.photoOutput.isDepthDataDeliverySupported ) {
+//            photoSettings.depthDataDeliveryEnabled = YES;
+//        } else {
+//            photoSettings.depthDataDeliveryEnabled = NO;
+//        }
+//
+//        // Use a separate object for the photo capture delegate to isolate each capture life cycle.
+//        AVCamPhotoCaptureDelegate *photoCaptureDelegate = [[AVCamPhotoCaptureDelegate alloc] initWithRequestedPhotoSettings:photoSettings willCapturePhotoAnimation:^{
+//            dispatch_async( dispatch_get_main_queue(), ^{
+//                self._previewView.videoPreviewLayer.opacity = 0.0;
+//                [UIView animateWithDuration:0.25 animations:^{
+//                    self._previewView.videoPreviewLayer.opacity = 1.0;
+//                }];
+//            } );
+//        } livePhotoCaptureHandler:^( BOOL capturing ) {
+//            /*
+//                Because Live Photo captures can overlap, we need to keep track of the
+//                number of in progress Live Photo captures to ensure that the
+//                Live Photo label stays visible during these captures.
+//            */
+//            dispatch_async( self.sessionQueue, ^{
+//                if ( capturing ) {
+//                    self.inProgressLivePhotoCapturesCount++;
+//                }
+//                else {
+//                    self.inProgressLivePhotoCapturesCount--;
+//                }
+//
+//                NSInteger inProgressLivePhotoCapturesCount = self.inProgressLivePhotoCapturesCount;
+//                dispatch_async( dispatch_get_main_queue(), ^{
+//                    if ( inProgressLivePhotoCapturesCount > 0 ) {
+//                        self.capturingLivePhotoLabel.hidden = NO;
+//                    }
+//                    else if ( inProgressLivePhotoCapturesCount == 0 ) {
+//                        self.capturingLivePhotoLabel.hidden = YES;
+//                    }
+//                    else {
+//                        [self.delegate snapshotFailed];
+//                        NSLog( @"Error: In progress live photo capture count is less than 0" );
+//                    }
+//                } );
+//            } );
+//        } completionHandler:^( AVCamPhotoCaptureDelegate *photoCaptureDelegate ) {
+//            // When the capture is complete, remove a reference to the photo capture delegate so it can be deallocated.
+//            dispatch_async( self.sessionQueue, ^{
+//                self.inProgressPhotoCaptureDelegates[@(photoCaptureDelegate.requestedPhotoSettings.uniqueID)] = nil;
+//            } );
+//        }];
+//
+//        /*
+//            The Photo Output keeps a weak reference to the photo capture delegate so
+//            we store it in an array to maintain a strong reference to this object
+//            until the capture is completed.
+//        */
+//        self.inProgressPhotoCaptureDelegates[@(photoCaptureDelegate.requestedPhotoSettings.uniqueID)] = photoCaptureDelegate;
+//        [self.photoOutput capturePhotoWithSettings:photoSettings delegate:photoCaptureDelegate];
+    } );
 }
 
 - (IBAction)toggleLivePhotoMode:(UIButton *)livePhotoModeButton
@@ -833,8 +839,13 @@ typedef NS_ENUM( NSInteger, AVCamDepthDataDeliveryMode ) {
 	if ( error ) {
 		NSLog( @"Movie file finishing error: %@", error );
 		success = [error.userInfo[AVErrorRecordingSuccessfullyFinishedKey] boolValue];
+        [self.delegate videoRecordingFailed];
 	}
 	if ( success ) {
+        
+        [self.delegate videoRecordingComplete:outputFileURL];
+        
+        /*
 		// Check authorization status.
 		[PHPhotoLibrary requestAuthorization:^( PHAuthorizationStatus status ) {
 			if ( status == PHAuthorizationStatusAuthorized ) {
@@ -855,8 +866,10 @@ typedef NS_ENUM( NSInteger, AVCamDepthDataDeliveryMode ) {
 				cleanUp();
 			}
 		}];
+         */
 	}
 	else {
+        [self.delegate videoRecordingFailed];
 		cleanUp();
 	}
 	
@@ -870,6 +883,7 @@ typedef NS_ENUM( NSInteger, AVCamDepthDataDeliveryMode ) {
 		self.captureModeControl.enabled = YES;
 		
 	});
+      
 }
 
 #pragma mark KVO and Notifications

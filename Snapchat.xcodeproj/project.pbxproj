@@ -107,6 +107,7 @@
 		AE0AE6AC2144150F00426595 /* Snapchat */ = {
 			isa = PBXGroup;
 			children = (
+				AE0AE6F3214AD63C00426595 /* Utilities */,
 				AE0AE6E82148367300426595 /* Services */,
 				AE0AE6CF21456F0300426595 /* Protocols */,
 				AE0AE6C421441B4300426595 /* View */,
@@ -120,7 +121,6 @@
 				AE0AE6B92144151300426595 /* Info.plist */,
 				AE0AE6D42146B6D500426595 /* GoogleService-Info.plist */,
 				AE0AE6C521441CCD00426595 /* Snapchat-Bridging-Header.h */,
-				AE0AE6F1214AC57800426595 /* User.swift */,
 			);
 			path = Snapchat;
 			sourceTree = "<group>";
@@ -164,6 +164,14 @@
 				AE0AE6EB21496E4D00426595 /* DataService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AE0AE6F3214AD63C00426595 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AE0AE6F1214AC57800426595 /* User.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
